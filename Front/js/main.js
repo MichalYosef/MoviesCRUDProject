@@ -5,7 +5,7 @@ $( document ).ready(function()
     CRUD.Read(); // from crud
 
    
-    $('#btnCreate').click(function() { CRUD.Create(); });
+    $('#btnCreate').click(function(e) {e.preventDefault(); CRUD.Create(); });
 
 });
 

@@ -5,14 +5,7 @@
 const modelController = (function() 
 {
     let modelDataArr;
-    //  {
-
-    //     name: {htmlId: 'nm' , val: '' },
-    //     email: {htmlId: 'em' , val: '' },
-    //     phone: {htmlId: 'hp' , val: '' },
-    //     adress: {htmlId: 'al' , val: '' }
-    // };
-
+    
     function loadInputs( crudOpt, id=0 )
     {
         let ajaxStr = '';
@@ -48,7 +41,7 @@ const modelController = (function()
 
                 return ajaxStr; 
             }
-            defaule:
+            default:
                 alert("error in modelController.loadInputs. unknown crudOpt");
             
         } //end of switch( crudOpt )

@@ -21,11 +21,13 @@ const View = (function()
     {
         
         // TODO: BUg doesnt work
-        /*
-        let str = "<br/><div class='alert alert-info'>"+msg+"</div>";
+        
+        let str = "<br/><div class='alert alert-info alert-dismissible'>"+msg+"</div>";
+       
         $('#result').html(str);
-        */
-        $( "<br/><div class='alert alert-info'>"+msg+"</div>" ).appendTo( "#result" );
+        //document.getElementById('result').innerHTML=str;
+        
+        //$( "<br/><div class='alert alert-info'>"+msg+"</div>" ).appendTo( "#result" );
     }
 
 
