@@ -5,7 +5,7 @@ const CRUD = (function()
     {
         $.ajax({
             type: "POST",
-            url: App.getServerUrl() + '?p=add',
+            url: App.getServerUrl() + '?p=create',
             data: DirectorController.loadInputs('create'),
             async: false,
             success: function(response)
@@ -45,7 +45,7 @@ const CRUD = (function()
     {
         $.ajax({
             type: "POST",
-            url: App.getServerUrl() + '?p=edit',
+            url: App.getServerUrl() + '?p=update',
             data: DirectorController.loadInputs('update',id),
             async: false,
             success: function(response)

@@ -15,12 +15,12 @@ try
 
 $page = isset($_GET['p']) ? $_GET['p'] : '';
 
-if($page == 'add')
+if($page == 'create')
 {
-    $name = $_POST['nm'];
-    $email = $_POST['em'];
-    $phone = $_POST['hp'];
-    $address = $_POST['al'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
     
     $stmnt = $db->prepare("insert into crud values('',?,?,?,?)");
     $stmnt->bindParam(1,$name);
@@ -39,13 +39,13 @@ if($page == 'add')
     }
     
     
-}else if($page == 'edit')
+}else if($page == 'update')
 {
     $id = $_POST['id'];
-    $name = $_POST['nm'];
-    $email = $_POST['em'];
-    $phone = $_POST['hp'];
-    $address = $_POST['al'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
     
     $stmnt = $db->prepare("update crud set name=?, email=?, phone=?, address=? where id=?");
     $stmnt->bindParam(1,$name);
@@ -92,41 +92,40 @@ if($page == 'add')
     }
         while($row=$stmnt->fetch())
         {
-            ?>
-            <tr>
+            ?><tr>
                 <td><?php echo $row['id']?></td>
                 <td><?php echo $row['name']?></td>
                 <td><?php echo $row['email']?></td>
                 <td><?php echo $row['phone']?></td>
                 <td><?php echo $row['address']?></td>
                 <td>
-                    <button class="btn btn-warning"  data-toggle="modal" data-target="#edit-<?php echo $row['id']?>">Edit</button>
+                    <button class="btn btn-warning"  data-toggle="modal" data-target="#update-<?php echo $row['id']?>">Edit</button>
                     <!-- Modal -->
-                    <div class="modal fade" id="edit-<?php echo $row['id']?>" tabindex="-1" role="dialog" aria-labelledby="editLabel-<?php echo $row['id']?>">
+                    <div class="modal fade" id="update-<?php echo $row['id']?>" tabindex="-1" role="dialog" aria-labelledby="updateLabel-<?php echo $row['id']?>">
                         <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="editLabel-<?php echo $row['id']?>">Edit data</h4>
+                            <h4 class="modal-title" id="updateLabel-<?php echo $row['id']?>">Edit data</h4>
                             </div>
                             <form>
                                 <div class="modal-body">
                                 <input type="hidden" id="<?php echo $row['id']?>" value="<?php echo $row['id']?>">
                                     <div class="form-group">
-                                        <label for="nm">Name</label>
-                                        <input type="text" class="form-control" id="nm-<?php echo $row['id']?>" value="<?php echo $row['name']?>">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name-<?php echo $row['id']?>" value="<?php echo $row['name']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="em">email</label>
-                                        <input type="email" class="form-control" id="em-<?php echo $row['id']?>" value="<?php echo $row['email']?>">
+                                        <label for="email">email</label>
+                                        <input type="email" class="form-control" id="email-<?php echo $row['id']?>" value="<?php echo $row['email']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="hp">Phone</label>
-                                        <input type="number" class="form-control" id="hp-<?php echo $row['id']?>" value="<?php echo $row['phone']?>">
+                                        <label for="phone">Phone</label>
+                                        <input type="number" class="form-control" id="phone-<?php echo $row['id']?>" value="<?php echo $row['phone']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="al">Adress</label>
-                                        <textarea class="form-control" id="al-<?php echo $row['id']?>" placeholder="address..."><?php echo $row['address']?></textarea>
+                                        <label for="address">Adress</label>
+                                        <textarea class="form-control" id="address-<?php echo $row['id']?>" placeholder="address..."><?php echo $row['address']?></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -139,10 +138,8 @@ if($page == 'add')
                     </div>
                     <button onclick="CRUD.Delete(<?php echo $row['id']?>)" class="btn btn-danger">Delete</button>
                 </td>
-            </tr>
-        
-        <?php
-    }
+            </tr><?php    
+        }
 }
 
 ?>

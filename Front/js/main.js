@@ -2,10 +2,16 @@
 $( document ).ready(function() 
 {
    
-    CRUD.Read(); // from crud
+    CRUD.Read(); 
 
    
-    $('#btnCreate').click(function(e) {e.preventDefault(); CRUD.Create(); });
+    $('#btnCreate').click(function(e) 
+    {
+        e.preventDefault(); 
+        CRUD.Create(); 
+        $('#create').modal('hide');
+    
+    });
 
 });
 

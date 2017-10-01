@@ -1,7 +1,7 @@
 let DirectorController = modelController.loadController({
     
-                                            name: {htmlId: 'nm' , val: '' },
-                                            email: {htmlId: 'em' , val: '' },
-                                            phone: {htmlId: 'hp' , val: '' },
-                                            adress: {htmlId: 'al' , val: '' }
+                                            name: {htmlId: 'name' , val: '' },
+                                            email: {htmlId: 'email' , val: '' },
+                                            phone: {htmlId: 'phone' , val: '' },
+                                            adress: {htmlId: 'address' , val: '' }
                                           });
